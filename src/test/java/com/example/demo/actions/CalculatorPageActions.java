@@ -1,5 +1,4 @@
 package com.example.demo.actions;
-
 import com.example.demo.pages.planCalculatorLandingPage.ServiceSection;
 import com.example.demo.pages.planCalculatorLandingPage.SliderSection;
 import com.example.demo.pages.planCalculatorLandingPage.SuggestedPlanSection;

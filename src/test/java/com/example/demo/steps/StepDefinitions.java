@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static org.assertj.core.api.Assertions.*;
 
-public class XWayPulseSteps {
+public class StepDefinitions {
 
     private final WebDriver driver = Hooks.driver;
     private String selectedServiceText;
@@ -20,8 +20,8 @@ public class XWayPulseSteps {
     private final CalculatorLogic calculatorLogic;
     private final SuggestedPlanSection suggestedPlanSection;
 
-    public XWayPulseSteps(ServiceSection serviceSection, CalculatorLogic calculatorLogic,
-                          SuggestedPlanSection suggestedPlanSection, CalculatorPageActions pageActions) {
+    public StepDefinitions(ServiceSection serviceSection, CalculatorLogic calculatorLogic,
+                           SuggestedPlanSection suggestedPlanSection, CalculatorPageActions pageActions) {
         this.calculatorLogic = calculatorLogic;
         this.serviceSection = serviceSection;
         this.suggestedPlanSection = suggestedPlanSection;
