@@ -105,6 +105,7 @@ public class CalculatorLogic {
             price = (price + (XWUFactor - unitsIncluded) * unitRate);
             System.out.println("price " + price);
         }
+        System.out.println("Calculated price " + price);
         return price;
     }
 

@@ -1,4 +1,5 @@
 package com.example.demo.actions;
+import com.example.demo.browser.BrowserException;
 import com.example.demo.pages.planCalculatorLandingPage.ServiceSection;
 import com.example.demo.pages.planCalculatorLandingPage.SliderSection;
 import com.example.demo.pages.planCalculatorLandingPage.SuggestedPlanSection;
@@ -17,7 +18,7 @@ public class CalculatorPageActions {
     private final SliderSection sliderSection;
     private final SuggestedPlanSection suggestedPlanSection;
 
-    public CalculatorPageActions(ServiceSection serviceSection, SliderSection sliderSection, SuggestedPlanSection suggestedPlanSection) {
+    public CalculatorPageActions(ServiceSection serviceSection, SliderSection sliderSection, SuggestedPlanSection suggestedPlanSection) throws BrowserException {
         this.serviceSection = serviceSection;
         this.actions = new Actions(driver);
         this.sliderSection = sliderSection;
@@ -59,6 +60,7 @@ public class CalculatorPageActions {
     public int getSuggestedPrice() {
         String priceText = suggestedPlanSection.getSuggestedSaaSPriceElement().getText();
         String price = priceText.replaceAll("[^0-9]", "");
+        System.out.println("Suggested price " + price);
         return Integer.parseInt(price);
     }
 }

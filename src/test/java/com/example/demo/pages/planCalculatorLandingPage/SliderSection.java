@@ -1,10 +1,13 @@
 package com.example.demo.pages.planCalculatorLandingPage;
+
+import com.example.demo.browser.BrowserException;
 import com.example.demo.webDriver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import static com.example.demo.common.LocatorConstants.*;
 
 public class SliderSection {
@@ -15,11 +18,15 @@ public class SliderSection {
     By intersectionInput = By.xpath(INPUT_TYPE_SELECTOR + "[2]");
     By roadLengthInput = By.xpath(INPUT_TYPE_SELECTOR + "[1]");
 
+    public SliderSection() throws BrowserException {
+    }
+
 
     //    RL Slider
     public WebElement getRoadLengthSliderElement() {
         return driver.findElement(roadLengthSlider);
     }
+
     //    NSI Slider
     public WebElement getNumberOfSignalizedIntersectionsSliderElement() {
         return driver.findElement(intersectionSlider);

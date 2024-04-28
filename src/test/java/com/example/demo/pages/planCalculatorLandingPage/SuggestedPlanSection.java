@@ -1,4 +1,5 @@
 package com.example.demo.pages.planCalculatorLandingPage;
+import com.example.demo.browser.BrowserException;
 import com.example.demo.webDriver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,9 @@ public class SuggestedPlanSection {
     private final WebDriver driver = Driver.getDriver();
     By suggestedPlan = By.xpath(DIV_CLASS_SELECTOR + "'PlanPricing_suggestedPlan-planName__31ZTG']");
     By suggestedPrice = By.cssSelector("[data-testid='plan-price-line-1']");
+
+    public SuggestedPlanSection() throws BrowserException {
+    }
 
 
     public WebElement getSuggestedPlanElement() {

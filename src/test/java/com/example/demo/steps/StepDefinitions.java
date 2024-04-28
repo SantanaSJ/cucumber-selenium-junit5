@@ -1,5 +1,7 @@
 package com.example.demo.steps;
+
 import com.example.demo.actions.CalculatorPageActions;
+import com.example.demo.browser.BrowserException;
 import com.example.demo.common.CalculatorLogic;
 import com.example.demo.pages.planCalculatorLandingPage.ServiceSection;
 import com.example.demo.pages.planCalculatorLandingPage.SuggestedPlanSection;
@@ -9,11 +11,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class StepDefinitions {
 
-    private final WebDriver driver = Hooks.driver;
+        private final WebDriver driver = Hooks.driver;
+//    private WebDriver driver = BrowserFactory.getBrowser();
     private String selectedServiceText;
     private final ServiceSection serviceSection;
     private final CalculatorPageActions pageActions;
@@ -21,7 +25,7 @@ public class StepDefinitions {
     private final SuggestedPlanSection suggestedPlanSection;
 
     public StepDefinitions(ServiceSection serviceSection, CalculatorLogic calculatorLogic,
-                           SuggestedPlanSection suggestedPlanSection, CalculatorPageActions pageActions) {
+                           SuggestedPlanSection suggestedPlanSection, CalculatorPageActions pageActions) throws BrowserException {
         this.calculatorLogic = calculatorLogic;
         this.serviceSection = serviceSection;
         this.suggestedPlanSection = suggestedPlanSection;
