@@ -13,10 +13,10 @@ import static com.example.demo.common.LocatorConstants.*;
 public class SliderSection {
 
     private final WebDriver driver = Driver.getDriver();
-    By roadLengthSlider = By.xpath(ROOT_DIV_SELECTOR + "/div[1]/div[1]/div/div[1]/span/span[2]");
-    By intersectionSlider = By.xpath(ROOT_DIV_SELECTOR + "/div[1]/div[1]/div/div[2]/span/span[2]");
-    By intersectionInput = By.xpath(INPUT_TYPE_SELECTOR + "[2]");
-    By roadLengthInput = By.xpath(INPUT_TYPE_SELECTOR + "[1]");
+    private final By roadLengthSlider = By.xpath(ROOT_DIV_SELECTOR + "/div[1]/div[1]/div/div[1]/span/span[2]");
+    private final By intersectionSlider = By.xpath(ROOT_DIV_SELECTOR + "/div[1]/div[1]/div/div[2]/span/span[2]");
+    private final By intersectionInput = By.xpath(INPUT_TYPE_SELECTOR + "[2]");
+    private final By roadLengthInput = By.xpath(INPUT_TYPE_SELECTOR + "[1]");
 
     public SliderSection() throws BrowserException {
     }

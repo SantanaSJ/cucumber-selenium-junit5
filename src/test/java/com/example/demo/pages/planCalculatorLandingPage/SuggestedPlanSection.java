@@ -10,8 +10,8 @@ import static com.example.demo.common.LocatorConstants.DIV_CLASS_SELECTOR;
 public class SuggestedPlanSection {
 
     private final WebDriver driver = Driver.getDriver();
-    By suggestedPlan = By.xpath(DIV_CLASS_SELECTOR + "'PlanPricing_suggestedPlan-planName__31ZTG']");
-    By suggestedPrice = By.cssSelector("[data-testid='plan-price-line-1']");
+    private final By suggestedPlan = By.xpath(DIV_CLASS_SELECTOR + "'PlanPricing_suggestedPlan-planName__31ZTG']");
+    private final By suggestedPrice = By.cssSelector("[data-testid='plan-price-line-1']");
 
     public SuggestedPlanSection() throws BrowserException {
     }

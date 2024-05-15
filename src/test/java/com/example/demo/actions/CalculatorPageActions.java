@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class CalculatorPageActions {
 
-    WebDriver driver = Driver.getDriver();
+    private final WebDriver driver = Driver.getDriver();
     private final ServiceSection serviceSection;
     private String measuringUnit;
     private final Actions actions;
