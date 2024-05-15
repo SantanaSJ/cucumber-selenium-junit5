@@ -16,8 +16,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class StepDefinitions {
 
-        private final WebDriver driver = Hooks.driver;
-//    private WebDriver driver = BrowserFactory.getBrowser();
+    private final WebDriver driver = Hooks.driver;
     private String selectedServiceText;
     private final ServiceSection serviceSection;
     private final CalculatorPageActions pageActions;
