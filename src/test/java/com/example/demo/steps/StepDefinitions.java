@@ -4,7 +4,9 @@ import com.example.demo.actions.CalculatorPageActions;
 import com.example.demo.browser.BrowserException;
 import com.example.demo.common.CalculatorLogic;
 import com.example.demo.pages.planCalculatorLandingPage.ServiceSection;
+import com.example.demo.pages.planCalculatorLandingPage.SliderSection;
 import com.example.demo.pages.planCalculatorLandingPage.SuggestedPlanSection;
+import com.example.demo.webDriver.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,19 +18,22 @@ import static org.assertj.core.api.Assertions.*;
 
 public class StepDefinitions {
 
-    private final WebDriver driver = Hooks.driver;
+    private final WebDriver driver = Driver.getDriver();
     private String selectedServiceText;
     private final ServiceSection serviceSection;
     private final CalculatorPageActions pageActions;
     private final CalculatorLogic calculatorLogic;
     private final SuggestedPlanSection suggestedPlanSection;
+    private final SliderSection sliderSection;
 
     public StepDefinitions(ServiceSection serviceSection, CalculatorLogic calculatorLogic,
-                           SuggestedPlanSection suggestedPlanSection, CalculatorPageActions pageActions) throws BrowserException {
+                           SuggestedPlanSection suggestedPlanSection, CalculatorPageActions pageActions, SliderSection sliderSection) throws BrowserException {
         this.calculatorLogic = calculatorLogic;
         this.serviceSection = serviceSection;
         this.suggestedPlanSection = suggestedPlanSection;
         this.pageActions = pageActions;
+        this.sliderSection = new SliderSection();
+        this.sliderSection.setPageActions(pageActions);
     }
 
     @Given("user is on pricing calculator page {string}")
@@ -40,13 +45,15 @@ public class StepDefinitions {
     @When("user sets road length slider value to {int}")
     public void userSetsRoadLengthSliderValueToRoadLength(int roadLength) {
         System.out.println("Road Length: " + roadLength);
-        pageActions.setRoadLengthSliderValue(roadLength);
+        WebElement roadLengthSlider = sliderSection.getRoadLengthSliderElement();
+        sliderSection.setSliderValue(roadLengthSlider, roadLength);
     }
 
     @And("user sets number of signalized intersections slider value to {int}")
     public void setNumberOfSignalizedIntersections(int intersections) {
         System.out.println("Signalized Intersections: " + intersections);
-        pageActions.setNumberOfSignalizedIntersections(intersections);
+        WebElement intersectionsSlider = sliderSection.getNumberOfSignalizedIntersectionsSliderElement();
+        sliderSection.setSliderValue(intersectionsSlider, intersections);
     }
 
     @And("user selects {string} service from the dropdown menu")

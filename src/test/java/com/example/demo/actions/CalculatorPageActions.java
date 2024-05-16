@@ -15,13 +15,11 @@ public class CalculatorPageActions {
     private final ServiceSection serviceSection;
     private String measuringUnit;
     private final Actions actions;
-    private final SliderSection sliderSection;
     private final SuggestedPlanSection suggestedPlanSection;
 
-    public CalculatorPageActions(ServiceSection serviceSection, SliderSection sliderSection, SuggestedPlanSection suggestedPlanSection) throws BrowserException {
+    public CalculatorPageActions(ServiceSection serviceSection, SuggestedPlanSection suggestedPlanSection) throws BrowserException {
         this.serviceSection = serviceSection;
         this.actions = new Actions(driver);
-        this.sliderSection = sliderSection;
         this.suggestedPlanSection = suggestedPlanSection;
     }
 
@@ -41,16 +39,7 @@ public class CalculatorPageActions {
         return measuringUnit;
     }
 
-    public void setRoadLengthSliderValue(int value) {
-        WebElement slider = sliderSection.getRoadLengthSliderElement();
-        actions.click(slider);
-        for (int i = 1; i < value; i++) {
-            actions.sendKeys(Keys.ARROW_RIGHT).release().build().perform();
-        }
-    }
-
-    public void setNumberOfSignalizedIntersections(int value) {
-        WebElement slider = sliderSection.getNumberOfSignalizedIntersectionsSliderElement();
+    public void setSliderValue(WebElement slider, int value) {
         actions.click(slider);
         for (int i = 1; i < value; i++) {
             actions.sendKeys(Keys.ARROW_RIGHT).release().build().perform();
